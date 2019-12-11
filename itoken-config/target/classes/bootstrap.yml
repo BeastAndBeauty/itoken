@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: itoken-config
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  cloud:
+    config:
+      label: master #配置文件分支
+      server:
+        git:
+          uri: https://github.com/BeastAndBeauty/config-cloud.git  #git仓库地址
+          search-paths: respon   #配置文件目录
+          username: BeastAndBeauty
+          password: hsh290638172314
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
